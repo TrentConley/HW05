@@ -63,18 +63,21 @@ public class MovieTheater {
 
     public static void main(String[] args) {
         String[] arrMovies = {"a", "b", "c", "d", "e"};
-        ArrayList<String> movies = new ArrayList<String>();
-        addToArrayList(movies, arrMovies);
+        ArrayList<String> movies = createArrayList(arrMovies);
         
         String[] arrWatched = {"f", "g"};
-        ArrayList<String> watched = new ArrayList<String>();
-        addToArrayList(watched, arrWatched);
+        ArrayList<String> watched = createArrayList(arrWatched);
+
+        String[] arrRecommended = {"a", "b", "x", "y"};
+        ArrayList<String> recommended = createArrayList(arrRecommended);
 
         MovieTheater m = new MovieTheater(movies, watched);
         
+        
+
         try {
             m.throwIfMoviesMissing(movies);
-            
+
             m.watchMovie(arrMovies[0]);
             m.watchMovie("z");
         } catch (FilmNotFoundException fnfe) {
@@ -82,9 +85,11 @@ public class MovieTheater {
         }
     }
 
-    private static void addToArrayList(ArrayList<String> a, String[] b) {
+    private static ArrayList<String> createArrayList(String[] b) {
+        ArrayList<String> a = new ArrayList<String>();
         for (String s : b) {
             a.add(s);
         }
+        return a;
     }
 }
