@@ -28,4 +28,13 @@ public class MovieTheater {
             }
         }
     }
+
+    public void watchMovie(String movie) throws FilmNotFoundException {
+        if (! this.movies.contains(movie)) {
+            throw new FilmNotFoundException(movie);
+        } else {
+            this.movies.remove(movie);
+            this.watched.add(movie);
+        }
+    }
 }
