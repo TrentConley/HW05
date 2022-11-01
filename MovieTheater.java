@@ -86,9 +86,6 @@ public class MovieTheater {
         String[] arrRecommended = {"a", "b", "x", "y"};
         ArrayList<String> recommended = createArrayList(arrRecommended);
 
-        String[] arrTestWatchMovie = {"a", "b", "c", "f", "g", "x", "x"}; //should pass for only f and g.
-        ArrayList<String> testWatchMovie = createArrayList(arrTestWatchMovie);
-
         MovieTheater m = new MovieTheater(movies, watched);
 
         try {
@@ -109,10 +106,19 @@ public class MovieTheater {
             System.out.println("Took a look at the movies!");
         }
 
+        String[] arrTestWatchMovie = {"a", "b", "c", "f", "g", "x", "x"}; //should pass for only f and g.
+        ArrayList<String> testWatchMovie = createArrayList(arrTestWatchMovie);
+        functionTestWatchMovie(m, testWatchMovie);
     }
 
-    private void test() {MovieTheater m, Array} {
-
+    private static void functionTestWatchMovie(MovieTheater m, ArrayList<String> a) {
+        for (String s : a) {
+            try {
+                m.watchMovie(s);
+            } catch (FilmNotFoundException fnfe) {
+                System.out.println(fnfe);
+            }
+        }
     }
 
     /**
