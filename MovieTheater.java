@@ -29,7 +29,7 @@ public class MovieTheater {
     public void throwIfMoviesMissing(ArrayList<String> interestingMovies) throws FilmNotFoundException {
         // Iterating ArrayList using Iterator
         for (String m : interestingMovies) {
-            if (! this.movies.contains(m)) {
+            if (!this.movies.contains(m)) {
                 throw new FilmNotFoundException(m);
             }
         }
@@ -44,7 +44,7 @@ public class MovieTheater {
     public void watchMovie(String movie) throws FilmNotFoundException {
         if (this.watched.contains(movie)) {
             throw new AlreadyWatchedException();
-        } else if (! this.movies.contains(movie)) {
+        } else if (!this.movies.contains(movie)) {
             throw new FilmNotFoundException(movie);
         } else {
             this.movies.remove(movie);
@@ -53,7 +53,7 @@ public class MovieTheater {
     }
 
     /**
-     * Makes and returns a list of movies to see based off of friend recomendation. 
+     * Makes and returns a list of movies to see based off of friend recomendation.
      * @param recommendedMovies Movies that the friend recomended
      * @return movies that I will see, an array list.
      */
@@ -75,7 +75,7 @@ public class MovieTheater {
     public static void main(String[] args) {
         String[] arrMovies = {"a", "b", "c", "d", "e"};
         ArrayList<String> movies = createArrayList(arrMovies);
-        
+
         String[] arrWatched = {"f", "g"};
         ArrayList<String> watched = createArrayList(arrWatched);
 
@@ -83,8 +83,6 @@ public class MovieTheater {
         ArrayList<String> recommended = createArrayList(arrRecommended);
 
         MovieTheater m = new MovieTheater(movies, watched);
-        
-        
 
         try {
             m.throwIfMoviesMissing(movies);
