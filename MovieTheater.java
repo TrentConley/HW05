@@ -35,6 +35,12 @@ public class MovieTheater {
         }
     }
 
+    /**
+     * Watches a movie that is passed in.
+     *
+     * @param movie Movie to be watched.
+     * @throws FilmNotFoundException Will throw if the movie cannot be found.
+     */
     public void watchMovie(String movie) throws FilmNotFoundException {
         if (this.watched.contains(movie)) {
             throw new AlreadyWatchedException();
@@ -61,6 +67,11 @@ public class MovieTheater {
         return willSee;
     }
 
+    /**
+     * Main method, code will run from this method.
+     *
+     * @param args Args that the user enters upon calling the function.
+     */
     public static void main(String[] args) {
         String[] arrMovies = {"a", "b", "c", "d", "e"};
         ArrayList<String> movies = createArrayList(arrMovies);
@@ -92,6 +103,12 @@ public class MovieTheater {
         }
     }
 
+    /**
+     * Helper method to create Array list of Strings from String[].
+     *
+     * @param b input String[].
+     * @return new Array List of Strings.
+     */
     private static ArrayList<String> createArrayList(String[] b) {
         ArrayList<String> a = new ArrayList<String>();
         for (String s : b) {
