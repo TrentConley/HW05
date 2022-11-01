@@ -85,6 +85,10 @@ public class MovieTheater {
         } catch (FilmNotFoundException fnfe) {
             System.out.println(fnfe.getMessage());
 
+        } catch (AlreadyWatchedException awe) {
+            System.out.println(awe.getMessage());
+        } finally {
+            System.out.println("Took a look at the movies!");
         }
     }
 
