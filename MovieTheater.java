@@ -80,7 +80,10 @@ public class MovieTheater {
 
             m.watchMovie(arrMovies[0]);
             m.watchMovie("z");
+
+            m.selectRecommended(recommended);
         } catch (FilmNotFoundException fnfe) {
+            System.out.println(fnfe.getMessage());
 
         }
     }
