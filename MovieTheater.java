@@ -20,6 +20,12 @@ public class MovieTheater {
         this.watched = new ArrayList<>(watched);
     }
 
+    /**
+     * throws Exception if there movies passed in are either already watched or not shown in theater.
+     *
+     * @param interestingMovies array list of movies.
+     * @throws FilmNotFoundException if the interesting movies are not in this.movies.
+     */
     public void throwIfMoviesMissing(ArrayList<String> interestingMovies) throws FilmNotFoundException {
         // Iterating ArrayList using Iterator
         for (String m : interestingMovies) {
@@ -40,7 +46,45 @@ public class MovieTheater {
         }
     }
 
+    /**
+     * Makes and returns a list of movies to see based off of friend recomendation. 
+     * @param recommendedMovies Movies that the friend recomended
+     * @return movies that I will see, an array list.
+     */
     public ArrayList<String> selectRecommended(ArrayList<String> recommendedMovies) {
-        return null;
+        ArrayList<String> willSee = new ArrayList<String>();
+        for (String movie : recommendedMovies) {
+            if (this.movies.contains(movie)) {
+                willSee.add(movie);
+            }
+        }
+        return willSee;
+    }
+
+    public static void main(String[] args) {
+        String[] arrMovies = {"a", "b", "c", "d", "e"};
+        ArrayList<String> movies = new ArrayList<String>();
+        addToArrayList(movies, arrMovies);
+        
+        String[] arrWatched = {"f", "g"};
+        ArrayList<String> watched = new ArrayList<String>();
+        addToArrayList(watched, arrWatched);
+
+        MovieTheater m = new MovieTheater(movies, watched);
+        
+        try {
+            m.throwIfMoviesMissing(movies);
+            
+            m.watchMovie(arrMovies[0]);
+            m.watchMovie("z");
+        } catch (FilmNotFoundException fnfe) {
+
+        }
+    }
+
+    private static void addToArrayList(ArrayList<String> a, String[] b) {
+        for (String s : b) {
+            a.add(s);
+        }
     }
 }
