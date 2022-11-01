@@ -92,6 +92,14 @@ public class MovieTheater {
         ArrayList<String> testWatchMovie = createArrayList(arrTestWatchMovie);
         functionTestWatchMovie(m, testWatchMovie);
 
+        String[] arrTestThrowIfMoviesMissing = {"a", "x", "m"};
+        ArrayList<String> testThrowIfMoviesMissing = createArrayList(arrTestThrowIfMoviesMissing);
+        functionTestThrowIfMoviesMissing(m, testThrowIfMoviesMissing);
+
+        String[] arrTestSelectRecommended = {"a", "b", "f", "x", "m"};
+        ArrayList<String> testSelectRecommended = createArrayList(arrTestSelectRecommended);
+        functionTestSelectRecommended(m, testSelectRecommended);
+
         try {
             m.throwIfMoviesMissing(movies);
 
@@ -111,6 +119,12 @@ public class MovieTheater {
         }
     }
 
+    /**
+     * Function to test functionality of watchMovie.
+     *
+     * @param m movie object that was instantiated earlier.
+     * @param a array list to pass into the movie WatchMovies Function.
+     */
     private static void functionTestWatchMovie(MovieTheater m, ArrayList<String> a) {
         for (String s : a) {
             try {
@@ -120,6 +134,33 @@ public class MovieTheater {
             } catch (AlreadyWatchedException awe) {
                 System.out.println(awe.getMessage());
             }
+        }
+    }
+
+    /**
+     * Function to test functionality of throwIfMoviesMissing.
+     *
+     * @param m movie object that was instantiated earlier.
+     * @param a array list to pass into the throwIfMoviesMission function.
+     */
+    private static void functionTestThrowIfMoviesMissing(MovieTheater m, ArrayList<String> a) {
+        try {
+            m.throwIfMoviesMissing(a);
+        } catch (FilmNotFoundException fnfe) {
+            System.out.println(fnfe.getMessage());
+        } catch (AlreadyWatchedException awe) {
+            System.out.println(awe.getMessage());
+        }
+
+    }
+
+    private static void functionTestSelectRecommended(MovieTheater m, ArrayList<String> a) {
+        try {
+            m.throwIfMoviesMissing(a);
+        } catch (FilmNotFoundException fnfe) {
+            System.out.println(fnfe.getMessage());
+        } catch (AlreadyWatchedException awe) {
+            System.out.println(awe.getMessage());
         }
     }
 
