@@ -88,6 +88,10 @@ public class MovieTheater {
 
         MovieTheater m = new MovieTheater(movies, watched);
 
+        String[] arrTestWatchMovie = {"a", "b", "c", "f", "g", "x"}; //should pass for only f and g.
+        ArrayList<String> testWatchMovie = createArrayList(arrTestWatchMovie);
+        functionTestWatchMovie(m, testWatchMovie);
+
         try {
             m.throwIfMoviesMissing(movies);
 
@@ -105,10 +109,6 @@ public class MovieTheater {
         } finally {
             System.out.println("Took a look at the movies!");
         }
-
-        String[] arrTestWatchMovie = {"a", "b", "c", "f", "g", "x", "x"}; //should pass for only f and g.
-        ArrayList<String> testWatchMovie = createArrayList(arrTestWatchMovie);
-        functionTestWatchMovie(m, testWatchMovie);
     }
 
     private static void functionTestWatchMovie(MovieTheater m, ArrayList<String> a) {
@@ -116,7 +116,9 @@ public class MovieTheater {
             try {
                 m.watchMovie(s);
             } catch (FilmNotFoundException fnfe) {
-                System.out.println(fnfe);
+                System.out.println(fnfe.getMessage());
+            } catch (AlreadyWatchedException awe) {
+                System.out.println(awe.getMessage());
             }
         }
     }
