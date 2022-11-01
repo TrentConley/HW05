@@ -88,17 +88,17 @@ public class MovieTheater {
 
         MovieTheater m = new MovieTheater(movies, watched);
 
-        String[] arrTestWatchMovie = {"a", "b", "c", "f", "g", "x"}; //should pass for only f and g.
-        ArrayList<String> testWatchMovie = createArrayList(arrTestWatchMovie);
-        functionTestWatchMovie(m, testWatchMovie);
+        // String[] arrTestWatchMovie = {"a", "b", "c", "f", "g", "x"}; //should pass for only f and g.
+        // ArrayList<String> testWatchMovie = createArrayList(arrTestWatchMovie);
+        // functionTestWatchMovie(m, testWatchMovie);
 
-        String[] arrTestThrowIfMoviesMissing = {"a", "x", "m"};
-        ArrayList<String> testThrowIfMoviesMissing = createArrayList(arrTestThrowIfMoviesMissing);
-        functionTestThrowIfMoviesMissing(m, testThrowIfMoviesMissing);
+        // String[] arrTestThrowIfMoviesMissing = {"a", "x", "m"};
+        // ArrayList<String> testThrowIfMoviesMissing = createArrayList(arrTestThrowIfMoviesMissing);
+        // functionTestThrowIfMoviesMissing(m, testThrowIfMoviesMissing);
 
-        String[] arrTestSelectRecommended = {"a", "b", "f", "x", "m"};
-        ArrayList<String> testSelectRecommended = createArrayList(arrTestSelectRecommended);
-        functionTestSelectRecommended(m, testSelectRecommended);
+        // String[] arrTestSelectRecommended = {"a", "b", "f", "x", "m"};
+        // ArrayList<String> testSelectRecommended = createArrayList(arrTestSelectRecommended);
+        // functionTestSelectRecommended(m, testSelectRecommended);
 
         try {
             m.throwIfMoviesMissing(movies);
