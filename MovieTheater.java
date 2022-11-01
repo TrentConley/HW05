@@ -36,8 +36,11 @@ public class MovieTheater {
             throw new FilmNotFoundException(movie);
         } else {
             this.movies.remove(movie);
-
             this.watched.add(movie);
         }
+    }
+
+    public ArrayList<String> selectRecommended(ArrayList<String> recommendedMovies) {
+        return null;
     }
 }
