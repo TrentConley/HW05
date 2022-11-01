@@ -21,6 +21,11 @@ public class MovieTheater {
     }
 
     public void throwIfMoviesMissing(ArrayList<String> interestingMovies) throws FilmNotFoundException {
-        
+        // Iterating ArrayList using Iterator
+        for (String m : interestingMovies) {
+            if (! this.movies.contains(m)) {
+                throw new FilmNotFoundException(m);
+            }
+        }
     }
 }
