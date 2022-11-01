@@ -27,12 +27,16 @@ public class MovieTheater {
      * @throws FilmNotFoundException if the interesting movies are not in this.movies.
      */
     public void throwIfMoviesMissing(ArrayList<String> interestingMovies) throws FilmNotFoundException {
-        // Iterating ArrayList using Iterator
-        for (String m : interestingMovies) {
+        // Iterating using while loop
+        int i = 0;
+        while (i < interestingMovies.size()) {
+            String m = interestingMovies.get(i);
             if (!this.movies.contains(m)) {
                 throw new FilmNotFoundException(m);
             }
+            i++;
         }
+        // I would have used a for each loop, but order matters.
     }
 
     /**
@@ -82,6 +86,9 @@ public class MovieTheater {
         String[] arrRecommended = {"a", "b", "x", "y"};
         ArrayList<String> recommended = createArrayList(arrRecommended);
 
+        String[] arrTestWatchMovie = {"a", "b", "c", "f", "g", "x", "x"}; //should pass for only f and g.
+        ArrayList<String> testWatchMovie = createArrayList(arrTestWatchMovie);
+
         MovieTheater m = new MovieTheater(movies, watched);
 
         try {
@@ -91,6 +98,8 @@ public class MovieTheater {
             m.watchMovie("z");
 
             m.selectRecommended(recommended);
+
+            //my tests from here down.
         } catch (FilmNotFoundException fnfe) {
             System.out.println(fnfe.getMessage());
 
@@ -99,6 +108,11 @@ public class MovieTheater {
         } finally {
             System.out.println("Took a look at the movies!");
         }
+
+    }
+
+    private void test() {MovieTheater m, Array} {
+
     }
 
     /**
